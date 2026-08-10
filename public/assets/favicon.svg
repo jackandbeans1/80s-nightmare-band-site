@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="A Nightmare on 80s Street 80 monogram">
+  <rect width="512" height="512" rx="72" fill="#0a0c0a"/>
+  <path fill="#fbea00" fill-rule="evenodd" d="M362 55c74 0 118 80 118 205s-44 197-118 197-118-72-118-197S288 55 362 55Zm0 82c-29 0-43 42-43 123s14 115 43 115 43-34 43-115-14-123-43-123Z"/>
+  <path fill="#5efd02" fill-rule="evenodd" d="M158 54c67 0 108 42 108 103 0 43-21 74-55 91 42 17 67 52 67 101 0 67-46 109-120 109S38 416 38 349c0-49 25-84 67-101-34-17-55-48-55-91 0-61 41-103 108-103Zm0 72c-25 0-41 15-41 40 0 27 16 43 41 43s41-16 41-43c0-25-16-40-41-40Zm0 151c-29 0-47 20-47 52 0 35 18 55 47 55s47-20 47-55c0-32-18-52-47-52Z"/>
+  <path d="M414 92 390 154M445 113l-24 62" fill="none" stroke="#0a0c0a" stroke-width="13" stroke-linecap="round"/>
+</svg>
