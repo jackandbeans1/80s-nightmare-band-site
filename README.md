@@ -2,6 +2,8 @@
 
 Official website for the San Diego horror-themed 80s band.
 
+Production: [80snightmareband.net](https://80snightmareband.net) · Cloudflare preview: [80s-nightmare-band.pages.dev](https://80s-nightmare-band.pages.dev)
+
 ## Local development
 
 ```bash
