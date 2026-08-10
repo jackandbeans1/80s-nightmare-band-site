@@ -37,6 +37,8 @@ Alternate SVG logo themes live in `public/assets/`:
 - `logo-aftershock-yellow.svg`: flat cyan header logo with a magenta contour and high-contrast yellow “80s.”
 - `logo-badge-aftershock-yellow.svg`: matching flat-color square badge used by the web app manifest.
 
+The favicon family isolates the original “80s” glyph as a standalone yellow-and-magenta icon. The SVG source, 32px PNG, Apple touch icon, and multi-size ICO live in `public/assets/` and `public/favicon.ico`.
+
 ## Deploy
 
 ```bash
