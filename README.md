@@ -36,7 +36,7 @@ Alternate SVG logo themes live in `public/assets/`:
 - `logo-midnight-signal.svg` and `logo-badge-midnight-signal.svg`: electric cyan with ultraviolet.
 - `logo-aftershock-yellow.svg`: flat cyan header logo with a magenta contour and high-contrast yellow “80s.”
 - `logo-badge-aftershock-yellow.svg`: matching flat-color square badge used by the web app manifest.
-- Every logo gives the “s” the same hot-magenta fill as the exterior contour, with a slim black separator from the hazard-yellow “80.” The former `logo-1color-bone.svg` utility master now carries this two-color treatment too.
+- Every logo gives the “s” the same hot-magenta fill as the exterior contour, with a slim black separator from the hazard-yellow “80.” The “s” is optically enlarged for reliable reading at header and favicon sizes. The former `logo-1color-bone.svg` utility master now carries this two-color treatment too.
 - Multicolor logo contours use an 8-unit rounded stroke, while component outlines use a sturdier 2px weight; structural dividers remain 1px.
 
 The favicon family isolates the original “80s” glyph as a standalone yellow-and-magenta icon, with the “s” matching the exterior border. The SVG source, 32px PNG, Apple touch icon, and multi-size ICO live in `public/assets/` and `public/favicon.ico`.
