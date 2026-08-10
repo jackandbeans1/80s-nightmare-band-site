@@ -20,6 +20,12 @@ Wrangler serves the site from `public/`. No build step is required.
 
 Official dates and ticket links point to Bandsintown artist ID `15492639`. The public Bandsintown API currently rejects unauthenticated site requests, so the branded show row intentionally uses a reliable static fallback and sends visitors to the official listing.
 
+## Photo assets
+
+- Original promotional photos are archived in `source-assets/photos/`.
+- Optimized website versions live in `public/assets/photos/`.
+- Source: [Just Us Productions](https://justusproductions.net/a-nightmare-on-80s-street-1).
+
 ## Deploy
 
 ```bash
