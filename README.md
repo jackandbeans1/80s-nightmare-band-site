@@ -34,6 +34,7 @@ Alternate SVG logo themes live in `public/assets/`:
 
 - `logo-blood-moon.svg` and `logo-badge-blood-moon.svg`: blood red with hot magenta.
 - `logo-midnight-signal.svg` and `logo-badge-midnight-signal.svg`: electric cyan with ultraviolet.
+- `logo-spectrum.svg`: six-color full-width logo used exclusively in the site header.
 - `logo-badge-spectrum.svg`: six-color square badge used by the web app manifest.
 
 ## Deploy
