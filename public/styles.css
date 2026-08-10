@@ -265,10 +265,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .19em;
+  white-space: nowrap;
   text-transform: uppercase;
-  animation: marquee 28s linear infinite;
+  will-change: transform;
+  animation: marquee 20s linear infinite;
 }
-.marquee__track span { margin-inline: 30px; }
+.marquee__track span { margin-inline: 26px; }
 .marquee__track b { color: var(--green); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
