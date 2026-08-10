@@ -1,0 +1,19 @@
+{
+  "id": "/",
+  "name": "A Nightmare on 80s Street",
+  "short_name": "80s Nightmare",
+  "description": "San Diego's horror-themed 80s party band.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0c0a",
+  "theme_color": "#9b5cff",
+  "icons": [
+    {
+      "src": "/assets/logo-badge-spectrum.svg?v=1",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
