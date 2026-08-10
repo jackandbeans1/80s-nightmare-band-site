@@ -85,7 +85,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   transition: border-color .25s ease;
 }
 .site-header.scrolled { border-color: var(--rule); }
-.brand { display: block; width: 186px; }
+.brand { display: block; width: 200px; }
 .brand img { width: 100%; height: auto; }
 .site-nav {
   display: flex;
@@ -585,7 +585,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (max-width: 900px) {
   :root { --wrap: min(100% - 36px, 680px); }
   .site-header { grid-template-columns: 1fr auto; min-height: 72px; padding-inline: 18px; }
-  .brand { width: 164px; }
+  .brand { width: 176px; }
   .header-cta { display: none; }
   .menu-toggle {
     display: inline-flex;
