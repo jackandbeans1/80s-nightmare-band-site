@@ -34,8 +34,8 @@ Alternate SVG logo themes live in `public/assets/`:
 
 - `logo-blood-moon.svg` and `logo-badge-blood-moon.svg`: blood red with hot magenta.
 - `logo-midnight-signal.svg` and `logo-badge-midnight-signal.svg`: electric cyan with ultraviolet.
-- `logo-aftershock.svg`: flat cyan, magenta, and yellow full-width logo used exclusively in the site header.
-- `logo-badge-aftershock.svg`: matching flat-color square badge used by the web app manifest.
+- `logo-aftershock-yellow.svg`: flat cyan header logo with a magenta contour and high-contrast yellow “80s.”
+- `logo-badge-aftershock-yellow.svg`: matching flat-color square badge used by the web app manifest.
 
 ## Deploy
 
