@@ -26,9 +26,14 @@ Official dates and ticket links point to Bandsintown artist ID `15492639`. The p
 - Optimized website versions live in `public/assets/photos/`.
 - Source: [Just Us Productions](https://justusproductions.net/a-nightmare-on-80s-street-1).
 
-## Brand palette and icons
+## Brand palette and logo variants
 
-The primary colors remain acid green (`#5efd02`) and video yellow (`#fbea00`). Supporting 80s-horror accents are blood red (`#ff334d`), electric cyan (`#00e5ff`), hot magenta (`#ff2bd6`), and ultraviolet (`#9b5cff`). Custom SVG icons live in `public/assets/icons/`.
+The primary colors remain acid green (`#5efd02`) and video yellow (`#fbea00`). Supporting 80s-horror accents are blood red (`#ff334d`), electric cyan (`#00e5ff`), hot magenta (`#ff2bd6`), and ultraviolet (`#9b5cff`).
+
+Alternate SVG logo themes live in `public/assets/`:
+
+- `logo-blood-moon.svg` and `logo-badge-blood-moon.svg`: blood red with hot magenta.
+- `logo-midnight-signal.svg` and `logo-badge-midnight-signal.svg`: electric cyan with ultraviolet.
 
 ## Deploy
 

@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Neon eye and video signal">
-  <rect x="4" y="4" width="88" height="88" rx="18" fill="#0a0c0a" stroke="#00e5ff" stroke-width="3"/>
-  <path d="M13 49s13-21 35-21 35 21 35 21-13 21-35 21S13 49 13 49Z" fill="none" stroke="#00e5ff" stroke-width="5" stroke-linejoin="round"/>
-  <circle cx="48" cy="49" r="12" fill="#ff2bd6"/>
-  <circle cx="52" cy="45" r="4" fill="#ecebe4"/>
-  <path d="M17 20h28M53 20h10M70 20h9M17 78h12M36 78h43" fill="none" stroke="#ff2bd6" stroke-width="4" stroke-linecap="round"/>
-</svg>
