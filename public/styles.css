@@ -268,7 +268,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   white-space: nowrap;
   text-transform: uppercase;
   will-change: transform;
-  animation: marquee 20s linear infinite;
+  animation: marquee 28s linear infinite;
 }
 .marquee__track span { margin-inline: 26px; }
 .marquee__track b { color: var(--green); }
