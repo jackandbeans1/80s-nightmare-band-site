@@ -20,7 +20,7 @@ OUTPUT_DIR = ROOT / "public" / "assets"
 VIEWBOX_X = -20
 VIEWBOX_Y = 25
 VIEWBOX_WIDTH = 1517
-VIEWBOX_HEIGHT = 525
+VIEWBOX_HEIGHT = 410
 LOCKUP_CENTER_X = VIEWBOX_X + (VIEWBOX_WIDTH / 2)
 
 
@@ -167,7 +167,7 @@ def main() -> None:
     source = SOURCE_LOGO.read_text(encoding="utf-8")
     nightmare = nightmare_path_without_article(source)
     # Match the 99.5-unit height of the original ON / STREET supporting type.
-    fuel = text_path(args.font, "FUEL", target_height=99.5, center_y=470)
+    fuel = text_path(args.font, "FUEL", target_height=99.5, center_y=350)
 
     for variant in VARIANTS:
         output = OUTPUT_DIR / variant.filename
