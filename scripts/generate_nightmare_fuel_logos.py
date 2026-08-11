@@ -83,8 +83,11 @@ def nightmare_path_without_article(source: str) -> str:
     for part in parts:
         min_x, min_y, max_x, max_y = path_bounds(part)
         is_article_a = 230 <= min_x <= 270 and max_x <= 310 and max_y <= 105
+        is_hairline_artifact = (max_x - min_x) <= 1 or (max_y - min_y) <= 1
         if is_article_a:
             removed += 1
+        elif is_hairline_artifact:
+            continue
         else:
             kept.append(part)
 
@@ -93,16 +96,27 @@ def nightmare_path_without_article(source: str) -> str:
     return "".join(kept)
 
 
-def text_path(font_path: Path, text: str, target_width: float, baseline: float) -> str:
+def text_path(font_path: Path, text: str, target_height: float, center_y: float) -> str:
     font = TTFont(font_path)
     glyph_set = font.getGlyphSet()
     cmap = font.getBestCmap()
     metrics = font["hmtx"].metrics
 
     glyph_names = [cmap[ord(character)] for character in text]
-    advance_units = sum(metrics[name][0] for name in glyph_names)
-    scale = target_width / advance_units
-    start_x = (1477 - target_width) / 2
+
+    bounds_pen = BoundsPen(glyph_set)
+    cursor = 0
+    for name in glyph_names:
+        glyph_set[name].draw(TransformPen(bounds_pen, (1, 0, 0, 1, cursor, 0)))
+        cursor += metrics[name][0]
+    if bounds_pen.bounds is None:
+        raise ValueError(f'Text "{text}" has no drawable bounds')
+
+    min_x, min_y, max_x, max_y = bounds_pen.bounds
+    scale = target_height / (max_y - min_y)
+    content_width = (max_x - min_x) * scale
+    start_x = (1477 - content_width) / 2 - min_x * scale
+    baseline = center_y + ((min_y + max_y) * scale / 2)
 
     paths: list[str] = []
     cursor = 0
@@ -146,8 +160,8 @@ def main() -> None:
 
     source = SOURCE_LOGO.read_text(encoding="utf-8")
     nightmare = nightmare_path_without_article(source)
-    # Keep FUEL as a supporting lockup beneath the established NIGHTMARE wordmark.
-    fuel = text_path(args.font, "FUEL", target_width=430, baseline=558)
+    # Match the 99.5-unit height of the original ON / STREET supporting type.
+    fuel = text_path(args.font, "FUEL", target_height=99.5, center_y=470)
 
     for variant in VARIANTS:
         output = OUTPUT_DIR / variant.filename
