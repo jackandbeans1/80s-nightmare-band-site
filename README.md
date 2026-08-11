@@ -50,7 +50,7 @@ The `Nightmare Fuel` family preserves the exact outlined `NIGHTMARE` vector lett
 - `logo-nightmare-fuel-blood-moon.svg`: blood red, bone, and hot magenta.
 - `logo-nightmare-fuel-midnight-signal.svg`: electric cyan, white, and ultraviolet.
 
-Regenerate the family with `scripts/generate_nightmare_fuel_logos.py --font /path/to/Anton-Regular.ttf`. The generator requires Python with `fontTools`, expects the open-source Anton typeface used by the site, and converts `FUEL` to standalone SVG paths.
+Regenerate the family with `scripts/generate_nightmare_fuel_logos.py --font /path/to/Anton-Regular.ttf`. The generator requires Python with `fontTools` and Pillow, expects the open-source Anton typeface used by the site, reconstructs the concealed lower `NIGHTMARE` letterforms, and converts `FUEL` to standalone SVG paths.
 
 ## Search discoverability
 

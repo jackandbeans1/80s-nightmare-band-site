@@ -7,6 +7,8 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+from PIL import Image, ImageDraw
+from fontTools.pens.basePen import BasePen
 from fontTools.pens.boundsPen import BoundsPen
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
@@ -22,6 +24,69 @@ VIEWBOX_Y = 25
 VIEWBOX_WIDTH = 1517
 VIEWBOX_HEIGHT = 410
 LOCKUP_CENTER_X = VIEWBOX_X + (VIEWBOX_WIDTH / 2)
+
+
+class FlattenPen(BasePen):
+    """Approximate SVG curves as polygons for lower-letter reconstruction."""
+
+    def __init__(self, steps: int = 18) -> None:
+        super().__init__(None)
+        self.steps = steps
+        self.contours: list[list[tuple[float, float]]] = []
+        self.current: list[tuple[float, float]] = []
+
+    def _moveTo(self, point: tuple[float, float]) -> None:
+        if self.current:
+            self.contours.append(self.current)
+        self.current = [point]
+
+    def _lineTo(self, point: tuple[float, float]) -> None:
+        self.current.append(point)
+
+    def _curveToOne(
+        self,
+        control_1: tuple[float, float],
+        control_2: tuple[float, float],
+        point: tuple[float, float],
+    ) -> None:
+        start = self._getCurrentPoint()
+        for index in range(1, self.steps + 1):
+            t = index / self.steps
+            inverse = 1 - t
+            self.current.append(
+                (
+                    inverse**3 * start[0]
+                    + 3 * inverse**2 * t * control_1[0]
+                    + 3 * inverse * t**2 * control_2[0]
+                    + t**3 * point[0],
+                    inverse**3 * start[1]
+                    + 3 * inverse**2 * t * control_1[1]
+                    + 3 * inverse * t**2 * control_2[1]
+                    + t**3 * point[1],
+                )
+            )
+
+    def _qCurveToOne(
+        self, control: tuple[float, float], point: tuple[float, float]
+    ) -> None:
+        start = self._getCurrentPoint()
+        for index in range(1, self.steps + 1):
+            t = index / self.steps
+            inverse = 1 - t
+            self.current.append(
+                (
+                    inverse**2 * start[0] + 2 * inverse * t * control[0] + t**2 * point[0],
+                    inverse**2 * start[1] + 2 * inverse * t * control[1] + t**2 * point[1],
+                )
+            )
+
+    def _closePath(self) -> None:
+        if self.current:
+            self.contours.append(self.current)
+            self.current = []
+
+    def _endPath(self) -> None:
+        self._closePath()
 
 
 @dataclass(frozen=True)
@@ -134,6 +199,71 @@ def text_path(font_path: Path, text: str, target_height: float, center_y: float)
     return "".join(paths)
 
 
+def reconstruct_lower_letters(
+    nightmare: str, cutoff_y: int = 285, baseline_y: int = 402
+) -> tuple[str, str]:
+    """Extrude the surviving lower contours of I through R to a shared baseline."""
+
+    pen = FlattenPen()
+    parse_path(nightmare, pen)
+    pen._endPath()
+
+    mask = Image.new("1", (1477, 435), 0)
+    draw = ImageDraw.Draw(mask)
+    for contour in pen.contours:
+        draw.polygon(contour, fill=1)
+
+    pixels = mask.load()
+    bottoms: dict[int, int] = {}
+    for x in range(205, 1276):
+        for y in range(baseline_y, cutoff_y - 1, -1):
+            if pixels[x, y]:
+                bottoms[x] = y
+                break
+
+    runs: list[list[int]] = []
+    for x in sorted(bottoms):
+        if not runs or x > runs[-1][-1] + 1:
+            runs.append([x])
+        else:
+            runs[-1].append(x)
+
+    fill_parts: list[str] = []
+    outline_parts: list[str] = []
+    baseline_pattern = (0, 2, -1, 3, 1, -2, 2)
+    for run_index, run in enumerate(runs):
+        if len(run) < 5:
+            continue
+
+        sampled_x = run[::4]
+        if sampled_x[-1] != run[-1]:
+            sampled_x.append(run[-1])
+
+        top_points: list[tuple[int, int]] = []
+        for x in sampled_x:
+            window = [bottoms[value] for value in range(max(run[0], x - 2), min(run[-1], x + 2) + 1)]
+            top_points.append((x, max(cutoff_y, max(window) - 10)))
+
+        bottom_x = sampled_x[::4]
+        if bottom_x[-1] != sampled_x[-1]:
+            bottom_x.append(sampled_x[-1])
+        bottom_points = [
+            (x, baseline_y + baseline_pattern[(run_index + index) % len(baseline_pattern)])
+            for index, x in enumerate(bottom_x)
+        ]
+
+        fill_points = top_points + list(reversed(bottom_points))
+        fill_parts.append(
+            "M"
+            + "L".join(f"{x} {y}" for x, y in fill_points)
+            + "Z"
+        )
+        outline_points = [top_points[0], bottom_points[0], *bottom_points[1:], top_points[-1]]
+        outline_parts.append("M" + "L".join(f"{x} {y}" for x, y in outline_points))
+
+    return "".join(fill_parts), "".join(outline_parts)
+
+
 def layered_paths(path_data: str, fill: str, contour: str, layer_name: str) -> str:
     return "".join(
         (
@@ -146,8 +276,39 @@ def layered_paths(path_data: str, fill: str, contour: str, layer_name: str) -> s
     )
 
 
-def render_svg(variant: Variant, nightmare: str, fuel: str) -> str:
-    nightmare_layers = layered_paths(nightmare, variant.nightmare, variant.contour, "nightmare")
+def reconstructed_nightmare_layers(
+    nightmare: str,
+    extension_fill: str,
+    extension_outline: str,
+    fill: str,
+    contour: str,
+) -> str:
+    return "".join(
+        (
+            f'<path data-layer="nightmare-contour" fill="{contour}" stroke="{contour}" '
+            f'stroke-width="20" stroke-linejoin="round" paint-order="stroke fill" d="{nightmare}"/>',
+            f'<path data-layer="nightmare-shadow" fill="#000000" stroke="#000000" '
+            f'stroke-width="12" stroke-linejoin="round" paint-order="stroke fill" d="{nightmare}"/>',
+            f'<path data-layer="nightmare-reconstruction" fill="{fill}" d="{extension_fill}"/>',
+            f'<path data-layer="nightmare" fill="{fill}" d="{nightmare}"/>',
+            f'<path data-layer="nightmare-reconstruction-contour" fill="none" stroke="{contour}" '
+            f'stroke-width="20" stroke-linecap="round" stroke-linejoin="round" d="{extension_outline}"/>',
+            f'<path data-layer="nightmare-reconstruction-shadow" fill="none" stroke="#000000" '
+            f'stroke-width="12" stroke-linecap="round" stroke-linejoin="round" d="{extension_outline}"/>',
+        )
+    )
+
+
+def render_svg(
+    variant: Variant,
+    nightmare: str,
+    extension_fill: str,
+    extension_outline: str,
+    fuel: str,
+) -> str:
+    nightmare_layers = reconstructed_nightmare_layers(
+        nightmare, extension_fill, extension_outline, variant.nightmare, variant.contour
+    )
     fuel_layers = layered_paths(fuel, variant.fuel, variant.contour, "fuel")
     return (
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{VIEWBOX_X} {VIEWBOX_Y} '
@@ -166,12 +327,17 @@ def main() -> None:
 
     source = SOURCE_LOGO.read_text(encoding="utf-8")
     nightmare = nightmare_path_without_article(source)
+    extension_fill, extension_outline = reconstruct_lower_letters(nightmare)
     # Match the 99.5-unit height of the original ON / STREET supporting type.
     fuel = text_path(args.font, "FUEL", target_height=99.5, center_y=350)
 
     for variant in VARIANTS:
         output = OUTPUT_DIR / variant.filename
-        output.write_text(render_svg(variant, nightmare, fuel), encoding="utf-8", newline="\n")
+        output.write_text(
+            render_svg(variant, nightmare, extension_fill, extension_outline, fuel),
+            encoding="utf-8",
+            newline="\n",
+        )
         print(output.relative_to(ROOT))
 
 
