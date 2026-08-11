@@ -146,7 +146,8 @@ def main() -> None:
 
     source = SOURCE_LOGO.read_text(encoding="utf-8")
     nightmare = nightmare_path_without_article(source)
-    fuel = text_path(args.font, "FUEL", target_width=650, baseline=572)
+    # Keep FUEL as a supporting lockup beneath the established NIGHTMARE wordmark.
+    fuel = text_path(args.font, "FUEL", target_width=430, baseline=558)
 
     for variant in VARIANTS:
         output = OUTPUT_DIR / variant.filename
