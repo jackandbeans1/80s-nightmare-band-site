@@ -3,7 +3,21 @@
   <url>
     <loc>https://80snightmareband.net/</loc>
     <lastmod>2026-08-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://80snightmareband.net/shows/</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://80snightmareband.net/shows/full-circle-saloon-2026-08-21/</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://80snightmareband.net/shows/the-holding-company-2026-10-23/</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+  <url>
+    <loc>https://80snightmareband.net/shows/historic-hemet-theatre-2026-10-30/</loc>
+    <lastmod>2026-08-10</lastmod>
   </url>
 </urlset>

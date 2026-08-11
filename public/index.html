@@ -3,17 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>A Nightmare on 80s Street | San Diego’s Horror-Themed 80s Band</title>
-  <meta name="description" content="Gritty reboots of 80s new wave, rock, dance, and pop—played live by San Diego’s horror-themed party band. See upcoming shows or book the nightmare.">
+  <title>San Diego 80s Cover Band | A Nightmare on 80s Street</title>
+  <meta name="description" content="A Nightmare on 80s Street is San Diego’s horror-themed 80s cover band, performing live new wave, rock, pop, and dance hits. See shows or book the band.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#0a0c0a">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="A Nightmare on 80s Street">
   <meta property="og:url" content="https://80snightmareband.net/">
-  <meta property="og:title" content="A Nightmare on 80s Street">
-  <meta property="og:description" content="Your nightmares from the 80s are back, and they brought a setlist.">
+  <meta property="og:title" content="San Diego 80s Cover Band | A Nightmare on 80s Street">
+  <meta property="og:description" content="San Diego’s horror-themed 80s cover band: live new wave, rock, pop, dance, costumes, lights, and fog.">
   <meta property="og:image" content="https://80snightmareband.net/assets/photos/og-live-group-v1.jpg?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="A Nightmare on 80s Street performing live in horror costumes">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="San Diego 80s Cover Band | A Nightmare on 80s Street">
+  <meta name="twitter:description" content="San Diego’s horror-themed 80s cover band: live new wave, rock, pop, dance, costumes, lights, and fog.">
+  <meta name="twitter:image" content="https://80snightmareband.net/assets/photos/og-live-group-v1.jpg?v=2">
+  <meta name="twitter:image:alt" content="A Nightmare on 80s Street performing live in horror costumes">
   <link rel="canonical" href="https://80snightmareband.net/">
   <link rel="icon" href="/favicon.ico?v=12" sizes="any">
   <link rel="icon" href="/assets/favicon-32.png?v=12" type="image/png" sizes="32x32">
@@ -23,23 +32,69 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=20260810-9">
+  <link rel="stylesheet" href="/styles.css?v=20260810-10">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "MusicGroup",
-    "name": "A Nightmare on 80s Street",
-    "url": "https://80snightmareband.net/",
-    "image": "https://80snightmareband.net/assets/photos/live-group-crowd-v1.webp?v=2",
-    "genre": ["80s", "New Wave", "Rock", "Pop"],
-    "foundingLocation": {"@type": "City", "name": "San Diego"},
-    "email": "80snightmareband@gmail.com",
-    "sameAs": [
-      "https://www.instagram.com/80snightmareband/",
-      "https://www.facebook.com/80snightmareband",
-      "https://www.tiktok.com/@80s.nightmare.ban",
-      "https://www.youtube.com/@anightmareon80sstreet",
-      "https://www.bandsintown.com/a/15492639"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://80snightmareband.net/#website",
+        "url": "https://80snightmareband.net/",
+        "name": "A Nightmare on 80s Street",
+        "alternateName": ["80s Nightmare", "80snightmareband.net"],
+        "inLanguage": "en-US",
+        "publisher": {"@id": "https://80snightmareband.net/#band"}
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://80snightmareband.net/#webpage",
+        "url": "https://80snightmareband.net/",
+        "name": "San Diego 80s Cover Band | A Nightmare on 80s Street",
+        "description": "A Nightmare on 80s Street is San Diego’s horror-themed 80s cover band, performing live new wave, rock, pop, and dance hits.",
+        "isPartOf": {"@id": "https://80snightmareband.net/#website"},
+        "about": {"@id": "https://80snightmareband.net/#band"},
+        "primaryImageOfPage": {"@id": "https://80snightmareband.net/#primaryimage"},
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://80snightmareband.net/#primaryimage",
+        "url": "https://80snightmareband.net/assets/photos/og-live-group-v1.jpg?v=2",
+        "contentUrl": "https://80snightmareband.net/assets/photos/og-live-group-v1.jpg?v=2",
+        "width": 1200,
+        "height": 630,
+        "caption": "A Nightmare on 80s Street performing live in San Diego"
+      },
+      {
+        "@type": "MusicGroup",
+        "@id": "https://80snightmareband.net/#band",
+        "name": "A Nightmare on 80s Street",
+        "alternateName": "80s Nightmare Band",
+        "url": "https://80snightmareband.net/",
+        "description": "San Diego’s horror-themed 80s cover band performing live new wave, rock, pop, and dance hits with costumes, lights, fog, and video.",
+        "foundingDate": "2019",
+        "foundingLocation": {"@type": "City", "name": "San Diego, California"},
+        "genre": ["1980s music", "New wave", "Rock", "Pop", "Dance"],
+        "image": {"@id": "https://80snightmareband.net/#primaryimage"},
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://80snightmareband.net/assets/logo-badge-aftershock-yellow.svg?v=11"
+        },
+        "email": "80snightmareband@gmail.com",
+        "telephone": "+1-760-445-2948",
+        "areaServed": [
+          {"@type": "City", "name": "San Diego"},
+          {"@type": "State", "name": "California"}
+        ],
+        "sameAs": [
+          "https://www.instagram.com/80snightmareband/",
+          "https://www.facebook.com/80snightmareband",
+          "https://www.tiktok.com/@80s.nightmare.ban",
+          "https://www.youtube.com/@anightmareon80sstreet",
+          "https://www.bandsintown.com/a/15492639-a-nightmare-on-80"
+        ]
+      }
     ]
   }
   </script>
@@ -71,9 +126,9 @@
       <div class="hero-grid wrap">
         <div class="hero-copy reveal">
           <p class="eyebrow"><span class="status-dot"></span> San Diego, California · Est. 2019</p>
-          <img class="hero-logo" src="/assets/logo.svg?v=11" alt="A Nightmare on 80s Street" width="1477" height="493">
-          <h1 id="hero-title">Two sets.<br>One decade.<br><em>No survivors.</em></h1>
-          <p class="hero-intro">Your favorite 80s new wave, rock, dance, and pop songs—dragged through the fog and brought back loud.</p>
+          <img class="hero-logo" src="/assets/logo.svg?v=11" alt="A Nightmare on 80s Street" width="1477" height="493" fetchpriority="high" decoding="async">
+          <h1 id="hero-title"><span class="hero-title__identity">San Diego’s horror-themed 80s cover band</span>Two sets.<br>One decade.<br><em>No survivors.</em></h1>
+          <p class="hero-intro">A Nightmare on 80s Street brings your favorite 80s new wave, rock, dance, and pop songs back from the dead—live, loud, and built for the dance floor.</p>
           <div class="button-row">
             <a class="button" href="#shows">Get tickets <span aria-hidden="true">↗</span></a>
             <a class="text-link" href="#experience">See the show <span aria-hidden="true">↓</span></a>
@@ -94,7 +149,7 @@
             <p>Santee, California</p>
             <p>Friday, August 21, 2026</p>
           </div>
-          <a class="button button--full" href="https://www.bandsintown.com/a/15492639" target="_blank" rel="noopener">Show details <span aria-hidden="true">↗</span></a>
+          <a class="button button--full" href="/shows/full-circle-saloon-2026-08-21/">Tickets &amp; details <span aria-hidden="true">→</span></a>
           <p class="microcopy">Official dates and ticket links via Bandsintown.</p>
         </aside>
       </div>
@@ -114,7 +169,7 @@
             <p class="eyebrow">01 / Upcoming shows</p>
             <h2 id="shows-title">Wake up. Get out.</h2>
           </div>
-          <a class="text-link" href="https://www.bandsintown.com/a/15492639" target="_blank" rel="noopener">All dates on Bandsintown <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="/shows/">All show details <span aria-hidden="true">→</span></a>
         </div>
 
         <div class="show-list" aria-live="polite">
@@ -125,13 +180,31 @@
               <p>Santee, CA · Friday, August 21, 2026</p>
             </div>
             <span class="tag tag--quiet">Live</span>
-            <a class="button button--outline" href="https://www.bandsintown.com/a/15492639" target="_blank" rel="noopener" aria-label="Show details for Full Circle Saloon on August 21">Details</a>
+            <a class="button button--outline" href="/shows/full-circle-saloon-2026-08-21/" aria-label="Show details for Full Circle Saloon on August 21, 2026">Details</a>
+          </article>
+          <article class="show-row reveal">
+            <time class="show-date" datetime="2026-10-23T20:00:00-07:00"><strong>23</strong><span>OCT<br>FRI</span></time>
+            <div class="show-venue">
+              <h3>The Holding Company</h3>
+              <p>Ocean Beach, San Diego · Friday, October 23, 2026 · 8:00 PM</p>
+            </div>
+            <span class="tag tag--quiet">Live</span>
+            <a class="button button--outline" href="/shows/the-holding-company-2026-10-23/" aria-label="Show details for The Holding Company on October 23, 2026">Details</a>
+          </article>
+          <article class="show-row reveal">
+            <time class="show-date" datetime="2026-10-30T19:00:00-07:00"><strong>30</strong><span>OCT<br>FRI</span></time>
+            <div class="show-venue">
+              <h3>Historic Hemet Theatre</h3>
+              <p>Hemet, CA · Friday, October 30, 2026 · 7:00 PM</p>
+            </div>
+            <span class="tag tag--quiet">Hallows Eve</span>
+            <a class="button button--outline" href="/shows/historic-hemet-theatre-2026-10-30/" aria-label="Show details for Historic Hemet Theatre on October 30, 2026">Details</a>
           </article>
         </div>
 
         <div class="shows-note reveal">
           <p>No show near you?</p>
-          <a href="https://www.bandsintown.com/a/15492639" target="_blank" rel="noopener">Follow the band and request a city <span aria-hidden="true">↗</span></a>
+          <a href="https://www.bandsintown.com/a/15492639-a-nightmare-on-80" target="_blank" rel="noopener">Follow the band and request a city <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
@@ -310,7 +383,7 @@
         <a href="https://www.youtube.com/@anightmareon80sstreet" target="_blank" rel="noopener">YouTube <span>↗</span></a>
         <a href="https://www.tiktok.com/@80s.nightmare.ban" target="_blank" rel="noopener">TikTok <span>↗</span></a>
         <a href="https://www.facebook.com/80snightmareband" target="_blank" rel="noopener">Facebook <span>↗</span></a>
-        <a href="https://www.bandsintown.com/a/15492639" target="_blank" rel="noopener">Bandsintown <span>↗</span></a>
+        <a href="https://www.bandsintown.com/a/15492639-a-nightmare-on-80" target="_blank" rel="noopener">Bandsintown <span>↗</span></a>
       </div>
     </div>
     <div class="wrap footer-bottom">

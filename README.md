@@ -41,6 +41,13 @@ Alternate SVG logo themes live in `public/assets/`:
 
 The favicon family isolates the original “80s” glyph as a standalone yellow, white, and magenta icon, with a white “s” and stronger black exterior stroke. The SVG source, 32px PNG, Apple touch icon, and multi-size ICO live in `public/assets/` and `public/favicon.ico`.
 
+## Search discoverability
+
+- The homepage includes unique search and social metadata plus `WebSite`, `WebPage`, `ImageObject`, and `MusicGroup` JSON-LD.
+- Each current show has a dedicated indexable page with visible venue details, a canonical URL, `MusicEvent` JSON-LD, and breadcrumb markup.
+- `sitemap.xml` lists the homepage and current event pages; `robots.txt` advertises the sitemap.
+- `404.html` returns a branded, crawlable `404` response with `noindex` to avoid soft-404 indexing noise.
+
 ## Deploy
 
 ```bash
