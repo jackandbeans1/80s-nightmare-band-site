@@ -41,6 +41,17 @@ Alternate SVG logo themes live in `public/assets/`:
 
 The favicon family isolates the original “80s” glyph as a standalone yellow, white, and magenta icon, with a white “s” and stronger black exterior stroke. The SVG source, 32px PNG, Apple touch icon, and multi-size ICO live in `public/assets/` and `public/favicon.ico`.
 
+### Nightmare Fuel alternate lockups
+
+The `Nightmare Fuel` family preserves the exact outlined `NIGHTMARE` vector lettering from the main logo, removes the isolated article “A,” and adds a path-based `FUEL` lower lockup. All variants are flat-color, transparent, gradient-free SVGs with no live-font dependency:
+
+- `logo-nightmare-fuel.svg`: slime green, white, and hot magenta.
+- `logo-nightmare-fuel-aftershock-yellow.svg`: electric cyan, shock yellow, and hot magenta.
+- `logo-nightmare-fuel-blood-moon.svg`: blood red, bone, and hot magenta.
+- `logo-nightmare-fuel-midnight-signal.svg`: electric cyan, white, and ultraviolet.
+
+Regenerate the family with `scripts/generate_nightmare_fuel_logos.py --font /path/to/Anton-Regular.ttf`. The generator requires Python with `fontTools`, expects the open-source Anton typeface used by the site, and converts `FUEL` to standalone SVG paths.
+
 ## Search discoverability
 
 - The homepage includes unique search and social metadata plus `WebSite`, `WebPage`, `ImageObject`, and `MusicGroup` JSON-LD.
