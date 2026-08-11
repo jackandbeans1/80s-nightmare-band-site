@@ -75,7 +75,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   z-index: 100;
   inset: 0 0 auto;
   display: grid;
-  grid-template-columns: 210px 1fr auto;
+  grid-template-columns: 228px 1fr auto;
   align-items: center;
   min-height: 78px;
   padding: 12px max(24px, calc((100vw - 1180px) / 2));
@@ -85,7 +85,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   transition: border-color .25s ease;
 }
 .site-header.scrolled { border-color: var(--rule); }
-.brand { display: block; width: 200px; }
+.brand { display: block; width: 218px; }
 .brand img { width: 100%; height: auto; }
 .site-nav {
   display: flex;
@@ -649,7 +649,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (max-width: 900px) {
   :root { --wrap: min(100% - 36px, 680px); }
   .site-header { grid-template-columns: 1fr auto; min-height: 72px; padding-inline: 18px; }
-  .brand { width: 176px; }
+  .brand { width: 184px; }
   .header-cta { display: none; }
   .menu-toggle {
     display: inline-flex;
