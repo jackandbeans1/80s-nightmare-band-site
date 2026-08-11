@@ -17,6 +17,11 @@ from fontTools.ttLib import TTFont
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_LOGO = ROOT / "public" / "assets" / "logo.svg"
 OUTPUT_DIR = ROOT / "public" / "assets"
+VIEWBOX_X = -20
+VIEWBOX_Y = 25
+VIEWBOX_WIDTH = 1517
+VIEWBOX_HEIGHT = 525
+LOCKUP_CENTER_X = VIEWBOX_X + (VIEWBOX_WIDTH / 2)
 
 
 @dataclass(frozen=True)
@@ -115,7 +120,7 @@ def text_path(font_path: Path, text: str, target_height: float, center_y: float)
     min_x, min_y, max_x, max_y = bounds_pen.bounds
     scale = target_height / (max_y - min_y)
     content_width = (max_x - min_x) * scale
-    start_x = (1477 - content_width) / 2 - min_x * scale
+    start_x = LOCKUP_CENTER_X - (content_width / 2) - min_x * scale
     baseline = center_y + ((min_y + max_y) * scale / 2)
 
     paths: list[str] = []
@@ -145,7 +150,8 @@ def render_svg(variant: Variant, nightmare: str, fuel: str) -> str:
     nightmare_layers = layered_paths(nightmare, variant.nightmare, variant.contour, "nightmare")
     fuel_layers = layered_paths(fuel, variant.fuel, variant.contour, "fuel")
     return (
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1477 620" width="1477" height="620" '
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="{VIEWBOX_X} {VIEWBOX_Y} '
+        f'{VIEWBOX_WIDTH} {VIEWBOX_HEIGHT}" width="{VIEWBOX_WIDTH}" height="{VIEWBOX_HEIGHT}" '
         'role="img" aria-label="Nightmare Fuel">'
         f"<title>{variant.title}</title>"
         f'<g data-lockup="nightmare-fuel">{nightmare_layers}{fuel_layers}</g>'
