@@ -590,6 +590,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .footer-bottom { display: flex; justify-content: space-between; gap: 30px; padding-top: 22px; border-top: 1px solid var(--rule); color: #687068; font-family: var(--mono); font-size: 8px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .footer-bottom p { margin: 0; }
 .footer-bottom a { color: var(--green); text-decoration: none; }
+.footer-bottom .studio-credit { color: #687068; text-decoration: underline; text-underline-offset: .2em; }
+.footer-bottom .studio-credit:hover { color: var(--green); }
 .noscript { position: fixed; z-index: 200; right: 0; bottom: 0; left: 0; margin: 0; padding: 10px; color: var(--black); background: var(--gold); text-align: center; }
 
 .event-page main { padding-top: 78px; }
