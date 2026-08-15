@@ -5,7 +5,8 @@
   "description": "Official website for A Nightmare on 80s Street",
   "scripts": {
     "dev": "wrangler pages dev public",
-    "deploy": "wrangler pages deploy public --project-name 80s-nightmare-band"
+    "qa": "node scripts/qa.mjs",
+    "deploy": "npm run qa && wrangler pages deploy public --project-name 80s-nightmare-band"
   },
   "devDependencies": {
     "wrangler": "^4.28.1"

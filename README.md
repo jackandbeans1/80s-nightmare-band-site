@@ -26,31 +26,22 @@ Official dates and ticket links point to Bandsintown artist ID `15492639`. The p
 - Optimized website versions live in `public/assets/photos/`.
 - Source: [Just Us Productions](https://justusproductions.net/a-nightmare-on-80s-street-1).
 
-## Brand palette and logo variants
+## Approved brand system
 
-The primary colors remain acid green (`#5efd02`) and video yellow (`#fbea00`). Supporting 80s-horror accents are blood red (`#ff334d`), electric cyan (`#00e5ff`), hot magenta (`#ff2bd6`), and ultraviolet (`#9b5cff`).
+The approved R2.1 package is archived without alteration in `source-assets/brand/anos-r2.1/`. Its source hierarchy, comparison proof, change log, production limitations, and vendor instructions travel with the artwork.
 
-Alternate SVG logo themes live in `public/assets/`:
+The website uses the preservation-faithful yellow-perimeter system:
 
-- `logo-blood-moon.svg` and `logo-badge-blood-moon.svg`: blood red with hot magenta.
-- `logo-midnight-signal.svg` and `logo-badge-midnight-signal.svg`: electric cyan with ultraviolet.
-- `logo-aftershock-yellow.svg`: flat cyan header logo with a magenta contour and high-contrast yellow “80s.”
-- `logo-badge-aftershock-yellow.svg`: matching flat-color square badge used by the web app manifest.
-- Every logo gives the “s” the same interior fill as “ON” and “STREET” (white in the multicolor variants), with a heavy 12-unit black exterior stroke. The “s” is optically enlarged for reliable reading at header and favicon sizes. The former `logo-1color-bone.svg` utility master uses its matching bone fill inside the same black stroke.
-- Multicolor logo contours use an 8-unit rounded stroke, while component outlines use a sturdier 2px weight; structural dividers remain 1px.
+- `public/assets/logo.svg`: canonical refined yellow-perimeter primary.
+- `public/assets/logo-digital-magenta.svg`: optional digital alternative; never the heritage primary.
+- `public/assets/logo-onecolor-light.svg`: one-color footer treatment on dark backgrounds.
+- `public/assets/mark-80s.svg`: approved small-size mark for decorative interface use.
+- `public/assets/social-80s-black.svg` and `social-80s-transparent.svg`: circle-safe social treatments.
+- `public/assets/favicon.svg`, native favicon PNGs, `apple-touch-icon.png`, and `favicon.ico`: approved small-size system and derived platform containers.
 
-The favicon family isolates the original “80s” glyph as a standalone yellow, white, and magenta icon, with a white “s” and stronger black exterior stroke. The SVG source, 32px PNG, Apple touch icon, and multi-size ICO live in `public/assets/` and `public/favicon.ico`.
+Canonical logo colors are acid green (`#5ef605`), video yellow (`#f7e812`), black, and white. The approved optional digital magenta is `#f02bcb`. Blood red, electric cyan, and ultraviolet remain supporting website accents but are not alternate logo colors.
 
-### Nightmare Fuel alternate lockups
-
-The `Nightmare Fuel` family preserves the exact outlined `NIGHTMARE` vector lettering from the main logo, removes the isolated article “A,” and adds a path-based `FUEL` lower lockup. All variants are flat-color, transparent, gradient-free SVGs with no live-font dependency:
-
-- `logo-nightmare-fuel.svg`: slime green, white, and hot magenta.
-- `logo-nightmare-fuel-aftershock-yellow.svg`: electric cyan, shock yellow, and hot magenta.
-- `logo-nightmare-fuel-blood-moon.svg`: blood red, bone, and hot magenta.
-- `logo-nightmare-fuel-midnight-signal.svg`: electric cyan, white, and ultraviolet.
-
-Regenerate the family with `scripts/generate_nightmare_fuel_logos.py --font /path/to/Anton-Regular.ttf`. The generator requires Python with `fontTools` and Pillow, expects the open-source Anton typeface used by the site, reconstructs the concealed lower `NIGHTMARE` letterforms, and converts `FUEL` to standalone SVG paths.
+Do not redraw, recolor, regenerate, crop, stroke, filter, or add effects to the approved logo files. Print PDFs and EPS files are RGB vector references, not vendor-profiled CMYK masters. Embroidery and screen-print reference files still require vendor confirmation and physical testing.
 
 ## Search discoverability
 
